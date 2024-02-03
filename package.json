@@ -2,11 +2,11 @@
   "name": "my-react-template",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://VPresich.github.io/my-react-template/",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build --base=/my-react-template/",
+    // "build": "vite build",
     "lint": "eslint src/**/*.{js,jsx}",
     "preview": "vite preview"
   },
