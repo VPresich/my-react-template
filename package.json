@@ -3,10 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://VPresich.github.io/my-react-template/",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/my-react-template/",
-    // "build": "vite build",
+    "build": "vite build",
     "lint": "eslint src/**/*.{js,jsx}",
     "preview": "vite preview"
   },
