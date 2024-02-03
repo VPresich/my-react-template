@@ -1,13 +1,13 @@
 .friends-list {
   width: 100%;
   display: flex;
-  column-gap: 24px;
+  column-gap: 16px;
   justify-content: center;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
-.item {
+.friends-list .item {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -16,26 +16,26 @@
   padding: 16px;
 }
 
-.avatar {
-  width: 120px;
-  height: 120px;
+.friends-list .avatar {
+  width: 100px;
+  height: 100px;
 }
 
-.name {
-  font-size: 24px;
+.friends-list .name {
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.5;
 }
 
-.status {
-  font-size: 20px;
+.friends-list .status {
+  font-size: 16px;
   font-weight: 600;
 }
 
-.online {
-  color: var(--online-color);
+.friends-list .online {
+  color: var(--status-online-color);
 }
 
-.offline {
-  color: var(--offline-color);
+.friends-list .offline {
+  color: var(--status-offline-color);
 }

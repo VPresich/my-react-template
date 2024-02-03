@@ -1,11 +1,11 @@
 import './App.css';
 import userData from './profile/userdata.json';
-import friends from './friendslist/friends.json';
-import transactions from './transactionshistory/transactions.json';
+import friends from './friends-list/friends.json';
+import transactions from './transactions-history/transactions.json';
 
 import Profile from './profile/Profile';
-import FriendsList from './friendslist/FriendsList';
-import TransactionsHistory from './transactionshistory/TransactionsHistory';
+import FriendsList from './friends-list/FriendsList';
+import TransactionsHistory from './transactions-history/TransactionsHistory';
 
 export default function App() {
   const { username, tag, location, avatar, stats } = userData;

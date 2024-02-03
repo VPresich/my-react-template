@@ -6,11 +6,10 @@
   --accent-color: #7e847f;
 
   --section-bgr-color: #e8e8e8;
-  --section-white-bgr-color: #ffffff;
+  --table-header-color: #ffffff;
 
   --btn-accent-color: #5f6560;
-  --star-color: #eea10c;
 
-  --online-color: #1cd71c;
-  --offline-color: #ff0000;
+  --status-online-color: #1cd71c;
+  --status-offline-color: #ff0000;
 }

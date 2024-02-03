@@ -4,7 +4,7 @@
   align-items: center;
   border: 2px solid var(--secondary-color);
   border-radius: 16px;
-  max-width: 450px;
+  max-width: 500px;
   padding-top: 20px;
   margin: 40px auto;
 }
@@ -17,13 +17,14 @@
   margin-bottom: 24px;
 }
 
-.avatar {
+.profile .avatar {
   width: 300px;
   height: 300px;
   border-radius: 50%;
+  background-color: var(--accent-color);
 }
 
-.name {
+.profile .name {
   font-size: 32px;
   font-weight: 700;
   line-height: 1.5;
