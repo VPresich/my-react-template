@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import './Profile.css';
+import StatsItem from './StatsItem';
 
 const Profile = ({ name, tag, location, image, stats }) => {
+  const statsData = Object.entries(stats);
+
   return (
     <div className="profile">
       <div className="description">
@@ -10,20 +13,10 @@ const Profile = ({ name, tag, location, image, stats }) => {
         <p className="tag">@{tag}</p>
         <p className="location">{location}</p>
       </div>
-
       <ul className="stats">
-        <li>
-          <span className="label">Followers</span>
-          <span className="value">{stats.followers}</span>
-        </li>
-        <li>
-          <span className="label">Views</span>
-          <span className="value">{stats.views}</span>
-        </li>
-        <li>
-          <span className="label">Likes</span>
-          <span className="value">{stats.likes}</span>
-        </li>
+        {statsData.map(([label, value], index) => (
+          <StatsItem key={index} label={label} value={value} />
+        ))}
       </ul>
     </div>
   );
