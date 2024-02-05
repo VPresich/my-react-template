@@ -1,25 +1,54 @@
+import { useState, useEffect } from 'react';
+
+import Description from './description/Description';
 import './App.css';
-import userData from './profile/userdata.json';
-import friends from './friends-list/friends.json';
-import transactions from './transactions-history/transactions.json';
+import Options from './options/Options';
+import Feedback from './feedback/Feedback';
+import { KEY_LOCALSTORAGE } from '../localstorage/key-storage';
 
-import Profile from './profile/Profile';
-import FriendsList from './friends-list/FriendsList';
-import TransactionsHistory from './transactions-history/TransactionsHistory';
+const App = () => {
+  const initialReviews = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
-export default function App() {
-  const { username, tag, location, avatar, stats } = userData;
+  const [reviews, setReviews] = useState(initialReviews);
+
+  const handleReview = type => {
+    setReviews(prevReviews => {
+      const newReviews = {
+        ...prevReviews,
+        [type]: prevReviews[type] + 1,
+      };
+      localStorage.setItem(KEY_LOCALSTORAGE, JSON.stringify(newReviews));
+      return newReviews;
+    });
+  };
+
+  const handleReset = () => {
+    setReviews(initialReviews);
+    localStorage.removeItem(KEY_LOCALSTORAGE);
+  };
+
+  useEffect(() => {
+    const storedReviews = JSON.parse(localStorage.getItem(KEY_LOCALSTORAGE));
+    if (storedReviews) {
+      setReviews(storedReviews);
+    }
+  }, []);
+
   return (
     <div>
-      <Profile
-        name={username}
-        tag={tag}
-        location={location}
-        image={avatar}
-        stats={stats}
+      <Description />
+      <Options
+        onReview={handleReview}
+        onReset={handleReset}
+        reviews={reviews}
       />
-      <FriendsList friends={friends} />
-      <TransactionsHistory items={transactions} />
+      <Feedback reviews={reviews} />
     </div>
   );
-}
+};
+
+export default App;
