@@ -1,52 +1,45 @@
-import { useState, useEffect } from 'react';
-
-import Description from './description/Description';
+import { useState } from 'react';
 import './App.css';
-import Options from './options/Options';
-import Feedback from './feedback/Feedback';
-import { KEY_LOCALSTORAGE } from '../localstorage/key-storage';
+import ContactList from './contacts-list/ContactsList';
+import contactsData from './contacts-list/contacts-data';
 
 const App = () => {
-  const initialReviews = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [contacts, setContacts] = useState(contactsData);
+  //   const [filter, setFilter] = useState('');
+
+  //   // Додаємо новий контакт до списку
+  //   const handleAddContact = newContact => {
+  //     setContacts(prevContacts => [
+  //       ...prevContacts,
+  //       { ...newContact, id: Date.now() },
+  //     ]);
+  //   };
+
+  // Видаляємо контакт за його ідентифікатором
+  const handleDeleteContact = id => {
+    setContacts(prevContacts =>
+      prevContacts.filter(contact => contact.id !== id)
+    );
   };
 
-  const [reviews, setReviews] = useState(initialReviews);
-
-  const handleReview = type => {
-    setReviews(prevReviews => {
-      const newReviews = {
-        ...prevReviews,
-        [type]: prevReviews[type] + 1,
-      };
-      localStorage.setItem(KEY_LOCALSTORAGE, JSON.stringify(newReviews));
-      return newReviews;
-    });
-  };
-
-  const handleReset = () => {
-    setReviews(initialReviews);
-    localStorage.removeItem(KEY_LOCALSTORAGE);
-  };
-
-  useEffect(() => {
-    const storedReviews = JSON.parse(localStorage.getItem(KEY_LOCALSTORAGE));
-    if (storedReviews) {
-      setReviews(storedReviews);
-    }
-  }, []);
+  // Фільтрація контактів за ім'ям
+  //   const filteredContacts = contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
 
   return (
     <div>
-      <Description />
-      <Options
-        onReview={handleReview}
-        onReset={handleReset}
-        reviews={reviews}
-      />
-      <Feedback reviews={reviews} />
+      <h1>Contacts App</h1>
+      {/* <ContactForm onAddContact={handleAddContact} />
+      <label>
+        Filter by Name:
+        <input
+          type="text"
+          value={filter}
+          onChange={e => setFilter(e.target.value)}
+        />
+      </label> */}
+      <ContactList contacts={contacts} onDeleteContact={handleDeleteContact} />
     </div>
   );
 };
