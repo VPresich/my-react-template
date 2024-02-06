@@ -1,6 +1,6 @@
 import styles from './Options.module.css';
 import OptionButton from './OptinButton';
-import { totalFeedback } from '../feedback-utils/utils';
+import { totalFeedback } from '../auxiliary/statistics';
 
 const Options = ({ onReview, onReset, reviews }) => {
   return (

@@ -1,7 +1,7 @@
 import styles from './Feedback.module.css';
 import Notification from '../notification/Notification';
 import FeedbackList from './FeedbackList';
-import { totalFeedback, positivePercents } from '../feedback-utils/utils';
+import { totalFeedback, positivePercents } from '../auxiliary/statistics';
 
 const Feedback = ({ reviews }) => {
   return (

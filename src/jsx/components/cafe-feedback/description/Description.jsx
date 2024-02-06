@@ -1,10 +1,11 @@
 import styles from './Description.module.css';
+import TitleSection from '../../titlesection/TitleSection';
 
 const Description = () => {
   return (
     <div>
-      <h2 className={styles['cafe-title']}>Sip Happens Café</h2>
-      <p className={styles['feedback-invitation']}>
+      <TitleSection>Sip Happens Café</TitleSection>
+      <p className={styles.invitation}>
         Please leave your feedback about our service by selecting one of the
         options below.
       </p>
