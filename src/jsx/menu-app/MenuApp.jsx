@@ -1,5 +1,4 @@
 import { NavLink, Routes, Route } from 'react-router-dom';
-// import { Switch } from 'react-router-dom';
 import { useState } from 'react';
 import { BookPhone } from '../components/bookphone/BookPhone';
 import { CafeFeedback } from '../components/cafe-feedback/CafeFeedback';
@@ -16,6 +15,8 @@ export const MenuApp = () => {
   };
 
   const buildLinkClassName = to => {
+    const nameClass = clsx(styles.link, to === activeLink && styles.active);
+    console.log(nameClass);
     return clsx(styles.link, to === activeLink && styles.active);
   };
 
@@ -45,14 +46,6 @@ export const MenuApp = () => {
         >
           Book Phone
         </NavLink>
-
-        <NavLink
-          className={buildLinkClassName('/bookphone')}
-          to="/bookphone"
-          onClick={() => handleNavLinkClick('/bookphone')}
-        >
-          Book Phone
-        </NavLink>
       </nav>
 
       <Routes>
@@ -60,12 +53,6 @@ export const MenuApp = () => {
         <Route path="/cafefeedback" element={<CafeFeedback />} />
         <Route path="/bookphone" element={<BookPhone />} />
       </Routes>
-
-      {/* <Switch>
-        <Route path="/cafefeedback" element={<CafeFeedback />} />
-        <Route path="/bookphone" element={<BookPhone />} />
-        <Route path="/" element={<ProfileSection />} />
-      </Switch> */}
     </div>
   );
 };
