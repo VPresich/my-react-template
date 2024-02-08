@@ -12,5 +12,5 @@
 }
 
 .active {
-  color: var(--secondary-color);
+  color: var(--active-menu-color);
 }
