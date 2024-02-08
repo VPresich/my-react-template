@@ -28,16 +28,14 @@ export const BookPhone = () => {
   );
 
   return (
-    <div className="section">
-      <div className="container">
-        <TitleSection> Phone Book</TitleSection>
-        <ContactForm onAddContact={handleAddContact} />
-        <SearchBox value={filter} onChange={e => setFilter(e.target.value)} />
-        <ContactsList
-          contacts={filteredContacts}
-          onDeleteContact={handleDeleteContact}
-        />
-      </div>
+    <div className="container">
+      <TitleSection> Phone Book</TitleSection>
+      <ContactForm onAddContact={handleAddContact} />
+      <SearchBox value={filter} onChange={e => setFilter(e.target.value)} />
+      <ContactsList
+        contacts={filteredContacts}
+        onDeleteContact={handleDeleteContact}
+      />
     </div>
   );
 };

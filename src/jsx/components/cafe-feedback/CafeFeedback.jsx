@@ -1,39 +1,52 @@
 import { useState, useEffect } from 'react';
+
 import { Description } from './description/Description';
-import { Feedback } from './feedback/Feedback';
 import { Options } from './options/Options';
-import { KEY_LOCALSTORAGE_FEEDBACK } from './auxiliary/key-storage';
-import { handleReview, handleReset } from './options/option-handles';
+import { Feedback } from './feedback/Feedback';
+import { saveToLocalStorage, getInitial } from './utils/local-storage';
+import { getStatistics } from './utils/feedback-satistics';
+import { Notification } from './notification/Notification';
+
+import {
+  CAFE_TITLE,
+  FEEDBACK_INVITATION,
+  NOTIFICATION,
+  INIT_REVIEWS,
+} from './utils/constants';
 
 export const CafeFeedback = () => {
-  const initialReviews = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  const [reviews, setReviews] = useState(getInitial());
+  const [statistics, calcStatistics] = useState(getStatistics(reviews));
+
+  const handleReview = type => {
+    setReviews(prevReviews => ({
+      ...prevReviews,
+      [type]: prevReviews[type] + 1,
+    }));
   };
 
-  const [reviews, setReviews] = useState(initialReviews);
+  const handleReset = () => {
+    setReviews(INIT_REVIEWS);
+  };
 
   useEffect(() => {
-    const storedReviews = JSON.parse(
-      localStorage.getItem(KEY_LOCALSTORAGE_FEEDBACK)
-    );
-    if (storedReviews) {
-      setReviews(storedReviews);
-    }
-  }, []);
+    saveToLocalStorage(reviews);
+    calcStatistics(getStatistics(reviews));
+  }, [reviews]);
 
   return (
-    <div className="section">
-      <div className="container">
-        <Description />
-        <Options
-          onReview={type => handleReview(type, reviews, setReviews)}
-          onReset={() => handleReset(initialReviews, setReviews)}
-          reviews={reviews}
-        />
-        <Feedback reviews={reviews} />
-      </div>
+    <div className="container">
+      <Description invitation={FEEDBACK_INVITATION}>{CAFE_TITLE}</Description>
+      <Options
+        onReview={handleReview}
+        onReset={handleReset}
+        isResetBtn={statistics.total > 0}
+      />
+      {statistics.total > 0 ? (
+        <Feedback reviews={reviews} statistics={statistics}></Feedback>
+      ) : (
+        <Notification>{NOTIFICATION}</Notification>
+      )}
     </div>
   );
 };
