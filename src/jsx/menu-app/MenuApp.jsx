@@ -36,7 +36,7 @@ export const MenuApp = () => {
           to="/cafefeedback"
           onClick={() => handleNavLinkClick('/cafefeedback')}
         >
-          Cafe Feedback
+          Feedback
         </NavLink>
 
         <NavLink
@@ -44,7 +44,7 @@ export const MenuApp = () => {
           to="/bookphone"
           onClick={() => handleNavLinkClick('/bookphone')}
         >
-          Book Phone
+          Phone book
         </NavLink>
       </nav>
 

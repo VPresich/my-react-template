@@ -6,16 +6,14 @@
 
 .name,
 .phone {
-  width: 188px;
   font-size: 16px;
   font-weight: 400;
 }
 
 .delete {
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: auto;
+  text-align: center;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-right: 12px;
@@ -41,7 +39,6 @@
 
   .name,
   .phone {
-    width: 200px;
     font-size: 20px;
     font-weight: 500;
   }
