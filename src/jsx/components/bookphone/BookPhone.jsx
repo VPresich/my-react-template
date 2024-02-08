@@ -6,8 +6,6 @@ import { SearchBox } from './search-box/SearchBox';
 import { ContactForm } from './contact-form/ContactForm';
 import contactsData from './contactsData';
 
-import './BookPhone.module.css';
-
 export const BookPhone = () => {
   const [contacts, setContacts] = useState(contactsData);
   const [filter, setFilter] = useState('');
