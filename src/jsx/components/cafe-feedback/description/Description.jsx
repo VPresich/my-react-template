@@ -1,7 +1,7 @@
 import styles from './Description.module.css';
-import TitleSection from '../../titlesection/TitleSection';
+import { TitleSection } from '../../titlesection/TitleSection';
 
-const Description = () => {
+export const Description = () => {
   return (
     <div>
       <TitleSection>Sip Happens Café</TitleSection>
@@ -12,5 +12,3 @@ const Description = () => {
     </div>
   );
 };
-
-export default Description;

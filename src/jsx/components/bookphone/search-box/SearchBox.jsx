@@ -1,6 +1,6 @@
 import styles from './SearchBox.module.css';
 
-const SearchBox = ({ value, onChange }) => {
+export const SearchBox = ({ value, onChange }) => {
   return (
     <div className={styles.searchbox}>
       <label className={styles.label} htmlFor="searchInput">
@@ -16,4 +16,3 @@ const SearchBox = ({ value, onChange }) => {
     </div>
   );
 };
-export default SearchBox;

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styles from './ContactForm.module.css';
-const ContactForm = ({ onAddContact }) => {
+
+export const ContactForm = ({ onAddContact }) => {
   const [name, setName] = useState('');
   const [number, setPhone] = useState('');
 
@@ -21,7 +22,7 @@ const ContactForm = ({ onAddContact }) => {
           Name:
         </label>
         <input
-          className={styles.label}
+          className={styles.input}
           id="nameInput"
           type="text"
           value={name}
@@ -31,7 +32,7 @@ const ContactForm = ({ onAddContact }) => {
           Number:
         </label>
         <input
-          className={styles.label}
+          className={styles.input}
           id="phoneInput"
           type="text"
           value={number}
@@ -44,5 +45,3 @@ const ContactForm = ({ onAddContact }) => {
     </form>
   );
 };
-
-export default ContactForm;

@@ -1,7 +1,7 @@
 import styles from './ContactItem.module.css';
 import { FaUser, FaPhone } from 'react-icons/fa';
 
-const ContactItem = ({ contact, onDeleteContact }) => {
+export const ContactItem = ({ contact, onDeleteContact }) => {
   return (
     <>
       <div className={styles.info}>
@@ -21,5 +21,3 @@ const ContactItem = ({ contact, onDeleteContact }) => {
     </>
   );
 };
-
-export default ContactItem;

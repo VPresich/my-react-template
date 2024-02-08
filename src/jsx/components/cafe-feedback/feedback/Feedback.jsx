@@ -1,9 +1,9 @@
 import styles from './Feedback.module.css';
-import Notification from '../notification/Notification';
-import FeedbackList from './FeedbackList';
+import { Notification } from '../notification/Notification';
+import { FeedbackList } from './FeedbackList';
 import { totalFeedback, positivePercents } from '../auxiliary/statistics';
 
-const Feedback = ({ reviews }) => {
+export const Feedback = ({ reviews }) => {
   return (
     <div>
       {totalFeedback(reviews) > 0 ? (
@@ -20,5 +20,3 @@ const Feedback = ({ reviews }) => {
     </div>
   );
 };
-
-export default Feedback;

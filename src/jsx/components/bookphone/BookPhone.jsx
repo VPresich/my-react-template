@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
-import TitleSection from '../titlesection/TitleSection';
-import ContactsList from './contacts-list/ContactsList';
+import { TitleSection } from '../titlesection/TitleSection';
+import { ContactsList } from './contacts-list/ContactsList';
+import { SearchBox } from './search-box/SearchBox';
+import { ContactForm } from './contact-form/ContactForm';
 import contactsData from './contactsData';
-import SearchBox from './search-box/SearchBox';
-import ContactForm from './contact-form/ContactForm';
 
 import './BookPhone.module.css';
 
-const BookPhone = () => {
+export const BookPhone = () => {
   const [contacts, setContacts] = useState(contactsData);
   const [filter, setFilter] = useState('');
 
@@ -43,5 +43,3 @@ const BookPhone = () => {
     </div>
   );
 };
-
-export default BookPhone;

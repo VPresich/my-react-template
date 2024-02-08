@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
-import Description from './description/Description';
-import Feedback from './feedback/Feedback';
-import Options from './options/Options';
+import { Description } from './description/Description';
+import { Feedback } from './feedback/Feedback';
+import { Options } from './options/Options';
 import { KEY_LOCALSTORAGE_FEEDBACK } from './auxiliary/key-storage';
 import { handleReview, handleReset } from './options/option-handles';
 
-const CafeFeedback = () => {
+export const CafeFeedback = () => {
   const initialReviews = {
     good: 0,
     neutral: 0,
@@ -37,5 +37,3 @@ const CafeFeedback = () => {
     </div>
   );
 };
-
-export default CafeFeedback;

@@ -1,8 +1,8 @@
 import styles from './Options.module.css';
-import OptionButton from './OptinButton';
+import { OptionButton } from './OptinButton';
 import { totalFeedback } from '../auxiliary/statistics';
 
-const Options = ({ onReview, onReset, reviews }) => {
+export const Options = ({ onReview, onReset, reviews }) => {
   return (
     <div className={styles.options}>
       <OptionButton onClick={() => onReview('good')}>Good</OptionButton>
@@ -14,5 +14,3 @@ const Options = ({ onReview, onReset, reviews }) => {
     </div>
   );
 };
-
-export default Options;

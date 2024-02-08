@@ -1,33 +1,18 @@
 .menu {
+  padding-top: 20px;
   display: flex;
   column-gap: 16px;
 }
 
 .link {
   color: var(--secondary-color);
-  background-color: transparent;
-  font-size: 16px;
+  font-size: 24px;
   line-height: 1.5;
-  background: none;
-  border: none;
-  padding: 6px;
-  transition: opacity 3000ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 12px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .active {
-  display: flex;
-  padding: 12px;
-  justify-content: center;
-  align-items: center; 
-  color: 
-
-  border-radius: 30px;
-  background: #fff;
-
-  font-size: 16px;
-  line-height: 1.5;
-
-  border: none;
-  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-    border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--active-menu-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
