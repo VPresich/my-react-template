@@ -1,7 +1,5 @@
 import { MenuApp } from './menu-app/MenuApp';
 
-const App = () => {
+export const App = () => {
   return <MenuApp />;
 };
-
-export default App;

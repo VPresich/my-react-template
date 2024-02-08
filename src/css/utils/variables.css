@@ -1,8 +1,8 @@
 :root {
+  --active-menu-color: #ff0000;
   --primary-color: #f6f6f6;
   --secondary-color: #1b1b1b;
   --section-gray-color: #7e847f;
-
   --accent-color: #7e847f;
 
   --section-bgr-color: #e8e8e8;
@@ -12,6 +12,4 @@
 
   --status-online-color: #1cd71c;
   --status-offline-color: #ff0000;
-
-  --active-menu-color: #ff0000;
 }
