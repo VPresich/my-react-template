@@ -87,21 +87,12 @@ export const MenuApp = () => {
           to="/"
           onClick={() => handleNavLinkClick('/')}
         >
-          Profile
-        </NavLink>
-
-        <NavLink
-          className={buildLinkClassName('/cafefeedback')}
-          to="/cafefeedback"
-          onClick={() => handleNavLinkClick('/cafefeedback')}
-        >
           Cafe Feedback
         </NavLink>
       </nav>
 
       <Routes>
-        <Route path="/" element={<ProfileSection />} />
-        <Route path="/cafefeedback" element={<CafeFeedback />} />
+        <Route path="/" element={<CafeFeedback />} />
       </Routes>
     </div>
   );
