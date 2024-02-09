@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { TitleSection } from '../titlesection/TitleSection';
 import { ContactsList } from './contacts-list/ContactsList';
 import { SearchBox } from './search-box/SearchBox';
-import { ContactForm } from './contact-form/ContactForm';
+import { ContactForm } from './contact-formik/ContactForm';
 import contactsData from './contactsData';
 
 import styles from './BookPhone.module.css';

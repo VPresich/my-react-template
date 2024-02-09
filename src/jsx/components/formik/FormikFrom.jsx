@@ -1,53 +1,78 @@
-import { useState } from 'react';
+import { useId } from 'react';
 
-import styles from './FormikForm.module.css';
+import { Formik, Form, Field } from 'formik';
+
 import { CustomButton } from '../bookphone/custom-button/CustomButton';
+import styles from './FormikForm.module.css';
+
+const initialValues = {
+  username: '',
+  email: '',
+  message: '',
+  level: 'good',
+};
 
 export const FormikForm = () => {
-  const [values, setValues] = useState({
-    login: '',
-    password: '',
-  });
+  const nameFieldId = useId();
+  const emailFieldId = useId();
+  const msgFieldId = useId();
+  const levelFieldId = useId();
 
-  const handleChange = evt => {
-    setValues({
-      ...values,
-      [evt.target.name]: evt.target.value,
-    });
-  };
-
-  const handleSumit = evt => {
-    evt.preventDefault();
-
+  const handleSubmit = (values, actions) => {
     console.log(values);
-
-    setValues({
-      login: '',
-      password: '',
-    });
+    actions.resetForm();
   };
 
   return (
     <div className={styles.section}>
-      <form className={styles.form} onSubmit={handleSumit}>
-        <div className={styles.info}>
-          <input
-            className={styles.input}
-            type="text"
-            name="login"
-            value={values.login}
-            onChange={handleChange}
-          />
-          <input
-            className={styles.input}
-            type="password"
-            name="password"
-            value={values.password}
-            onChange={handleChange}
-          />
-        </div>
-        <CustomButton type="submit">Login</CustomButton>
-      </form>
+      <Formik
+        className={styles.form}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <div className={styles.info}>
+            <label className={styles.label} htmlFor={nameFieldId}>
+              Username
+            </label>
+            <Field
+              className={styles.input}
+              id={nameFieldId}
+              type="text"
+              name="username"
+            />
+            <label className={styles.label} htmlFor={emailFieldId}>
+              Email
+            </label>
+            <Field
+              className={styles.input}
+              id={emailFieldId}
+              type="email"
+              name="email"
+            />
+
+            <label htmlFor={msgFieldId}>Message</label>
+            <Field
+              as="textarea"
+              name="message"
+              id={msgFieldId}
+              rows="5"
+              style={{ resize: 'none' }}
+            />
+            <Field
+              className={styles.input}
+              as="select"
+              name="level"
+              id={levelFieldId}
+            >
+              <option value="good">Good</option>
+              <option value="neutral">Neutral</option>
+              <option value="bad">Bad</option>
+            </Field>
+          </div>
+          <CustomButton type="button">Submit</CustomButton>
+        </Form>
+      </Formik>
     </div>
   );
 };
