@@ -4,6 +4,8 @@ import { BookPhone } from '../components/bookphone/BookPhone';
 import { CafeFeedback } from '../components/cafe-feedback/CafeFeedback';
 import { ProfileSection } from '../components/profile-section/PofileSection';
 
+import { Controls } from '../components/controls/Controls';
+
 import styles from './MenuApp.module.css';
 import clsx from 'clsx';
 
@@ -46,12 +48,21 @@ export const MenuApp = () => {
         >
           Phone book
         </NavLink>
+
+        <NavLink
+          className={buildLinkClassName('/controls')}
+          to="/controls"
+          onClick={() => handleNavLinkClick('/controls')}
+        >
+          Controls
+        </NavLink>
       </nav>
 
       <Routes>
         <Route path="/" element={<ProfileSection />} />
         <Route path="/cafefeedback" element={<CafeFeedback />} />
         <Route path="/bookphone" element={<BookPhone />} />
+        <Route path="/controls" element={<Controls />} />
       </Routes>
     </div>
   );
