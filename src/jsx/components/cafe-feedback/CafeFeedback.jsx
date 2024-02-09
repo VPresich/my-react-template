@@ -7,6 +7,8 @@ import { saveToLocalStorage, getInitial } from './utils/local-storage';
 import { getStatistics } from './utils/feedback-satistics';
 import { Notification } from './notification/Notification';
 
+import styles from './CafeFeedback.module.css';
+
 import {
   CAFE_TITLE,
   FEEDBACK_INVITATION,
@@ -35,7 +37,7 @@ export const CafeFeedback = () => {
   }, [reviews]);
 
   return (
-    <div className="container">
+    <div className={styles.section}>
       <Description invitation={FEEDBACK_INVITATION}>{CAFE_TITLE}</Description>
       <Options
         onReview={handleReview}

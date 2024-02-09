@@ -1,5 +1,6 @@
 import styles from './ContactItem.module.css';
 import { FaUser, FaPhone } from 'react-icons/fa';
+import { CustomButton } from '../custom-button/CustomButton';
 
 export const ContactItem = ({ contact, onDeleteContact }) => {
   return (
@@ -12,12 +13,12 @@ export const ContactItem = ({ contact, onDeleteContact }) => {
           <FaPhone /> {contact.number}
         </p>
       </div>
-      <button
-        className={styles.delete}
+      <CustomButton
         onClick={() => onDeleteContact(contact.id)}
+        typeBtn="button"
       >
         Delete
-      </button>
+      </CustomButton>
     </>
   );
 };

@@ -21,7 +21,7 @@ export const MenuApp = () => {
   };
 
   return (
-    <div className="container">
+    <div>
       <nav className={styles.menu}>
         <NavLink
           className={buildLinkClassName('/')}

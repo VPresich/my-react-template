@@ -6,6 +6,8 @@ import { SearchBox } from './search-box/SearchBox';
 import { ContactForm } from './contact-form/ContactForm';
 import contactsData from './contactsData';
 
+import styles from './BookPhone.module.css';
+
 export const BookPhone = () => {
   const [contacts, setContacts] = useState(contactsData);
   const [filter, setFilter] = useState('');
@@ -28,7 +30,7 @@ export const BookPhone = () => {
   );
 
   return (
-    <div className="container">
+    <div className={styles.section}>
       <TitleSection> Phone Book</TitleSection>
       <ContactForm onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={e => setFilter(e.target.value)} />

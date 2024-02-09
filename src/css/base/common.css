@@ -21,6 +21,7 @@ ul {
 a {
   color: currentColor;
   text-decoration: none;
+  font-style: normal;
 }
 
 button {
@@ -31,13 +32,13 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  margin: 0;
 }
 
-.link {
-  text-decoration: none;
-  font-style: normal;
-}
-
-.list {
-  list-style-type: none;
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  min-width: 320px;
+  min-height: 100vh;
 }
