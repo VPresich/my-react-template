@@ -1,3 +1,7 @@
+.section {
+  padding: 40px;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -41,14 +45,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .contactform {
+  .form {
     width: 375px;
     margin-bottom: 24px;
   }
 }
 
 @media screen and (min-width: 1440px) {
-  .contactform {
+  .form {
     margin-bottom: 28px;
   }
 }
