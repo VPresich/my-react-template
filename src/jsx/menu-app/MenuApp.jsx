@@ -6,6 +6,8 @@ import { ProfileSection } from '../components/profile-section/PofileSection';
 import { Controls } from '../components/controls/Controls';
 import { LoginForm } from '../components/login-form/LoginForm';
 
+import { FormikForm } from '../components/formik/FormikFrom';
+
 import styles from './MenuApp.module.css';
 import clsx from 'clsx';
 
@@ -64,6 +66,14 @@ export const MenuApp = () => {
         >
           LoginForm
         </NavLink>
+
+        <NavLink
+          className={buildLinkClassName('/formikform')}
+          to="/formikform"
+          onClick={() => handleNavLinkClick('/formikform')}
+        >
+          Formikform
+        </NavLink>
       </nav>
 
       <Routes>
@@ -72,6 +82,7 @@ export const MenuApp = () => {
         <Route path="/bookphone" element={<BookPhone />} />
         <Route path="/controls" element={<Controls />} />
         <Route path="/loginForm" element={<LoginForm />} />
+        <Route path="/formikform" element={<FormikForm />} />
       </Routes>
     </div>
   );
