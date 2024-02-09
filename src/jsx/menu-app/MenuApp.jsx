@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { BookPhone } from '../components/bookphone/BookPhone';
 import { CafeFeedback } from '../components/cafe-feedback/CafeFeedback';
 import { ProfileSection } from '../components/profile-section/PofileSection';
-
 import { Controls } from '../components/controls/Controls';
+import { LoginForm } from '../components/login-form/LoginForm';
 
 import styles from './MenuApp.module.css';
 import clsx from 'clsx';
@@ -56,6 +56,14 @@ export const MenuApp = () => {
         >
           Controls
         </NavLink>
+
+        <NavLink
+          className={buildLinkClassName('/loginform')}
+          to="/loginform"
+          onClick={() => handleNavLinkClick('/loginform')}
+        >
+          LoginForm
+        </NavLink>
       </nav>
 
       <Routes>
@@ -63,6 +71,7 @@ export const MenuApp = () => {
         <Route path="/cafefeedback" element={<CafeFeedback />} />
         <Route path="/bookphone" element={<BookPhone />} />
         <Route path="/controls" element={<Controls />} />
+        <Route path="/loginForm" element={<LoginForm />} />
       </Routes>
     </div>
   );
