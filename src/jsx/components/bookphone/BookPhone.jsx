@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { TitleSection } from '../titlesection/TitleSection';
 import { ContactsList } from './contacts-list/ContactsList';
 import { SearchBox } from './search-box/SearchBox';
-import { ContactForm } from './contact-formik/ContactForm';
+import { ContactFormik } from './contact-formik/ContactFormik';
 import contactsData from './contactsData';
 
 import styles from './BookPhone.module.css';
@@ -32,7 +32,7 @@ export const BookPhone = () => {
   return (
     <div className={styles.section}>
       <TitleSection> Phone Book</TitleSection>
-      <ContactForm onAddContact={handleAddContact} />
+      <ContactFormik onAddContact={handleAddContact} />
       <SearchBox value={filter} onChange={e => setFilter(e.target.value)} />
       <ContactsList
         contacts={filteredContacts}

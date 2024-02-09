@@ -3,7 +3,7 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 import { CustomButton } from '../custom-button/CustomButton';
-import styles from './ContactForm.module.css';
+import styles from './ContactFormik.module.css';
 
 const initialValues = {
   name: '',
@@ -21,7 +21,7 @@ const FeedbackSchema = Yup.object().shape({
     .required('Required'),
 });
 
-export const ContactForm = ({ onAddContact }) => {
+export const ContactFormik = ({ onAddContact }) => {
   const nameId = useId();
   const phoneId = useId();
 
