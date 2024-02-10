@@ -64,11 +64,9 @@ export const ContactFormik = ({ onAddContact }) => {
               type="tel"
               name="number"
             />
-            <ErrorMessage
-              className={styles.errorMessage}
-              name="number"
-              as="span"
-            />
+            <span className={styles.errorMessage}>
+              <ErrorMessage name="number" as="span" />
+            </span>
           </div>
         </div>
         <CustomButton typeBtn="submit">Add Contact</CustomButton>
