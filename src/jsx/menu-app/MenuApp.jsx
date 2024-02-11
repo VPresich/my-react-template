@@ -5,8 +5,9 @@ import { CafeFeedback } from '../components/cafe-feedback/CafeFeedback';
 import { ProfileSection } from '../components/profile-section/PofileSection';
 import { Controls } from '../components/controls/Controls';
 import { LoginForm } from '../components/login-form/LoginForm';
-
 import { FormikForm } from '../components/formik/FormikFrom';
+import { HttpComponent } from '../components/http-query/HttpComponent';
+import { HttpImages } from '../components/gallery/HttpImages';
 
 import styles from './MenuApp.module.css';
 import clsx from 'clsx';
@@ -74,8 +75,23 @@ export const MenuApp = () => {
         >
           Formikform
         </NavLink>
-      </nav>
 
+        <NavLink
+          className={buildLinkClassName('/httpcomponent')}
+          to="/httpcomponent"
+          onClick={() => handleNavLinkClick('/httpcomponent')}
+        >
+          HttpComponent
+        </NavLink>
+
+        <NavLink
+          className={buildLinkClassName('/httpImages')}
+          to="/httpImages"
+          onClick={() => handleNavLinkClick('/httpImages')}
+        >
+          PhotosGallery
+        </NavLink>
+      </nav>
       <Routes>
         <Route path="/" element={<ProfileSection />} />
         <Route path="/cafefeedback" element={<CafeFeedback />} />
@@ -83,6 +99,8 @@ export const MenuApp = () => {
         <Route path="/controls" element={<Controls />} />
         <Route path="/loginForm" element={<LoginForm />} />
         <Route path="/formikform" element={<FormikForm />} />
+        <Route path="/httpcomponent" element={<HttpComponent />} />
+        <Route path="/httpImages" element={<HttpImages />} />
       </Routes>
     </div>
   );
