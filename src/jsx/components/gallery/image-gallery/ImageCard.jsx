@@ -3,13 +3,7 @@ import styles from './ImageCard.module.css';
 export const ImageCard = ({ image: { urls, description } }) => {
   return (
     <div className={styles.card}>
-      <a href={urls.regular}>
-        <img className={styles.img} src={urls.small} alt={description} />
-        {/* <div>
-          <p>Author:{user.name}</p>
-          <p>Likes:{likes}</p>
-        </div> */}
-      </a>
+      <img className={styles.img} src={urls.small} alt={description} />
     </div>
   );
 };

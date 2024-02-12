@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { RxExit } from 'react-icons/rx';
+import Modal from 'react-modal';
 import { SearchForm } from './search-form/SearchForm';
 import { ImageGallery } from './image-gallery/ImageGallery';
 
@@ -6,6 +8,7 @@ import { fetchData } from './gallery-api/fetch-data';
 import { InfinitySpin } from 'react-loader-spinner';
 import { ERR_EMPTY_LOAD } from './notifications/constants';
 import { CustomButton } from '../bookphone/custom-button/CustomButton';
+// import { CustomModal } from './custom-modal/CustomModal';
 
 import styles from './HttpImages.module.css';
 
@@ -16,6 +19,12 @@ export const HttpImages = () => {
   const [currPage, setCurrPage] = useState(0);
   const [hasMorePages, setHasMorePages] = useState(false);
   const [filter, setFilter] = useState('');
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  useEffect(() => {
+    Modal.setAppElement('#root');
+  }, []);
 
   const updateImages = async (strFilter, page) => {
     try {
@@ -48,6 +57,15 @@ export const HttpImages = () => {
 
   const handleMore = () => updateImages(filter, currPage + 1);
 
+  const openModal = image => {
+    setSelectedImage(image);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
   return (
     <div className={styles.section}>
       <SearchForm onSearch={handleSearch} />
@@ -60,11 +78,45 @@ export const HttpImages = () => {
           />
         )}
         {error && <p>{ERR_EMPTY_LOAD}</p>}
-        {items.length > 0 && <ImageGallery images={items} />}
+        {items.length > 0 && (
+          <ImageGallery images={items} openModal={openModal} />
+        )}
         {hasMorePages && !loading && (
           <CustomButton onClick={handleMore}>Load More</CustomButton>
         )}
       </div>
+      {/* <CustomModal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        selectedImage={selectedImage}
+      /> */}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        overlayClassName={styles.backdrop}
+        className={styles.modal}
+      >
+        <div className={styles.modalcontainer}>
+          <button className={styles.closeButton} onClick={closeModal}>
+            <RxExit />
+          </button>
+          {selectedImage && (
+            <>
+              <div className={styles.imgContainer}>
+                <img
+                  src={selectedImage.urls.regular}
+                  alt={selectedImage.description}
+                  className={styles.image}
+                />
+              </div>
+              <p className={styles.text}>
+                Author: {selectedImage.user.username}
+              </p>
+              <p className={styles.text}>Likes: {selectedImage.likes} </p>
+            </>
+          )}
+        </div>
+      </Modal>
     </div>
   );
 };

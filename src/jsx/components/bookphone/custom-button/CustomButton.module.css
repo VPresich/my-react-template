@@ -11,8 +11,7 @@
   border: none;
   background-color: var(--accent-color);
   font-family: inherit;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
